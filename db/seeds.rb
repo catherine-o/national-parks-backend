@@ -6,7 +6,7 @@ User.destroy_all
 
 NPS_KEY = ENV['nps_api_key']
 
-park_base_url = "https://developer.nps.gov/api/v1/parks?&api_key=" + NPS_KEY
+park_base_url = ("https://developer.nps.gov/api/v1/parks?&api_key=" + NPS_KEY)
 
 park_results = RestClient.get(park_base_url)
 park_results_array = JSON.parse(park_results)['data']
