@@ -12,7 +12,7 @@ park_results1 = RestClient.get(park_base_url1)
 park_results_array1 = JSON.parse(park_results1)['data']
 park_results_array1.each do |park|
     Park.create(
-        name: park['name'],
+        name: CGI.unescapeHTML(park['name']),
         designation: park['designation'],
         states: park['states'],
         latLong: park['latLong'],
@@ -29,7 +29,7 @@ park_results2 = RestClient.get(park_base_url2)
 park_results_array2 = JSON.parse(park_results2)['data']
 park_results_array2.each do |park|
     Park.create(
-        name: park['name'],
+        name: CGI.unescapeHTML(park['name']),
         designation: park['designation'],
         states: park['states'],
         latLong: park['latLong'],
@@ -38,3 +38,5 @@ park_results_array2.each do |park|
         url: park['url']
     )
 end
+
+User.create(username: 'cat', name: 'cat', password: 'test')
