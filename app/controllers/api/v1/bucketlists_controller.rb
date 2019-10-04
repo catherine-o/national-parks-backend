@@ -7,7 +7,7 @@ class Api::V1::BucketlistsController < ApplicationController
     end
 
     def destroy
-        @bucketlist = Bucketlist.find_by(bucketlist_params)
+        @bucketlist = Bucketlist.find(params[:id])
         @bucketlist.destroy
     end
 
