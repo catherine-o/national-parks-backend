@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'json'
 
+Bucketlist.destroy_all
 Park.destroy_all
 User.destroy_all
 
@@ -39,4 +40,7 @@ park_results_array2.each do |park|
     )
 end
 
-User.create(username: 'cat', name: 'cat', password: 'test')
+user1 = User.create(username: 'cat', name: 'cat', password: 'test')
+Bucketlist.create(user: user1, park_id: 1)
+Bucketlist.create(user: user1, park_id: 2)
+Bucketlist.create(user: user1, park_id: 3)
