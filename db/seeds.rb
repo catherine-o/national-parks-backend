@@ -41,6 +41,6 @@ park_results_array2.each do |park|
 end
 
 user1 = User.create(username: 'cat', name: 'cat', password: 'test')
-Bucketlist.create(user: user1, park_id: 1)
-Bucketlist.create(user: user1, park_id: 2)
-Bucketlist.create(user: user1, park_id: 3)
+Bucketlist.create(user: user1, park_id: 402)
+Bucketlist.create(user: user1, park_id: 82)
+Bucketlist.create(user: user1, park_id: 240)
