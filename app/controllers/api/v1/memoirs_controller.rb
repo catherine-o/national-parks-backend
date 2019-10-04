@@ -2,8 +2,7 @@ class Api::V1::MemoirsController < ApplicationController
 
     def create
         @memoir = Memoir.create(memoir_params)
-        @park = Park.all.find_by(memoir: @memoir)
-        render json: @park
+        render json: @memoir
     end
 
     def destroy

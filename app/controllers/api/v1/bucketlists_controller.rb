@@ -2,8 +2,7 @@ class Api::V1::BucketlistsController < ApplicationController
 
     def create
         @bucketlist = Bucketlist.create(bucketlist_params)
-        @park = Park.all.find_by(bucketlist: @bucketlist)
-        render json: @park
+        render json: @bucketlist
     end
 
     def destroy
