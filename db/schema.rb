@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_015431) do
+ActiveRecord::Schema.define(version: 2019_10_04_174358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2019_10_04_015431) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["park_id"], name: "index_bucketlists_on_park_id"
     t.index ["user_id"], name: "index_bucketlists_on_user_id"
+  end
+
+  create_table "memoirs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "park_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["park_id"], name: "index_memoirs_on_park_id"
+    t.index ["user_id"], name: "index_memoirs_on_user_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -46,4 +55,6 @@ ActiveRecord::Schema.define(version: 2019_10_04_015431) do
 
   add_foreign_key "bucketlists", "parks"
   add_foreign_key "bucketlists", "users"
+  add_foreign_key "memoirs", "parks"
+  add_foreign_key "memoirs", "users"
 end
